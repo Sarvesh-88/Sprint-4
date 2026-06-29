@@ -4,8 +4,8 @@ A dynamic SaaS utility built to streamline the job application process. This pro
 
 ## Important Links
 
-* **Live Website:** [https://sprint4-project.vercel.app/]
-* **Demo Video:** [Insert URL Here]
+* **Live Website:** https://sprint4-project.vercel.app/
+* **Demo Video:** https://drive.google.com/file/d/1-kS48wsdVJOlW2PKk-lVHBIV2cGGti8H/view?usp=drivesdk
 
 ## Screenshot
 
