@@ -1,71 +1,94 @@
 import React, { useState } from 'react';
-import './App.css'; // CSS file ko import kar rahe hain
 
 export default function App() {
+  
   const [name, setName] = useState("");
   const [job, setJob] = useState("");
   const [company, setCompany] = useState("");
   const [skills, setSkills] = useState("");
+
   const [letter, setLetter] = useState("");
 
-  const handleNameChange = (e) => setName(e.target.value);
-  const handleJobChange = (e) => setJob(e.target.value);
-  const handleCompanyChange = (e) => setCompany(e.target.value);
-  const handleSkillsChange = (e) => setSkills(e.target.value);
+  
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
 
+  const handleJobChange = (e) => {
+    setJob(e.target.value);
+  };
+
+  const handleCompanyChange = (e) => {
+    setCompany(e.target.value);
+  };
+
+  const handleSkillsChange = (e) => {
+    setSkills(e.target.value);
+  };
+
+ 
   const submitForm = (e) => {
     e.preventDefault();
-    const myLetter = `Dear Hiring Manager at ${company},\n\nMy name is ${name} and I am applying for the ${job} role.\nI have good knowledge of these skills: ${skills}.\n\nThank you,\n${name}`;
+    
+    
+    const myLetter = `Dear Hiring Manager at ${company},
+
+My name is ${name} and I am applying for the ${job} role.
+I have good knowledge of these skills: ${skills}. 
+
+Thank you,
+${name}`;
+
     setLetter(myLetter);
   };
 
+ 
   const copyText = () => {
     navigator.clipboard.writeText(letter);
     alert("Text copied to clipboard!");
   };
 
   return (
-    <div className="app-container">
-      <div className="card">
-        <h1 className="title">Cover Letter Maker</h1>
-        <p className="subtitle">Generate professional cover letters in seconds.</p>
-        
-        <form onSubmit={submitForm} className="form-container">
-          <div className="input-group">
-            <label>Full Name</label>
-            <input type="text" placeholder="e.g. John Doe" value={name} onChange={handleNameChange} required />
-          </div>
+    <div>
+      <h1>Cover Letter Maker</h1>
+      
+    
+      <form onSubmit={submitForm}>
+        <div>
+          <label>Name: </label>
+          <input type="text" value={name} onChange={handleNameChange} required />
+        </div>
+        <br />
 
-          <div className="input-group">
-            <label>Job Role</label>
-            <input type="text" placeholder="e.g. Frontend Developer" value={job} onChange={handleJobChange} required />
-          </div>
+        <div>
+          <label>Job Role: </label>
+          <input type="text" value={job} onChange={handleJobChange} required />
+        </div>
+        <br />
 
-          <div className="input-group">
-            <label>Company Name</label>
-            <input type="text" placeholder="e.g. Google" value={company} onChange={handleCompanyChange} required />
-          </div>
+        <div>
+          <label>Company: </label>
+          <input type="text" value={company} onChange={handleCompanyChange} required />
+        </div>
+        <br />
 
-          <div className="input-group">
-            <label>Key Skills</label>
-            <input type="text" placeholder="e.g. React, JavaScript, CSS" value={skills} onChange={handleSkillsChange} required />
-          </div>
+        <div>
+          <label>Skills: </label>
+          <input type="text" value={skills} onChange={handleSkillsChange} required />
+        </div>
+        <br />
 
-          <button type="submit" className="primary-btn">Generate Letter</button>
-        </form>
+        <button type="submit">Generate Letter</button>
+      </form>
 
-        {letter !== "" && (
-          <div className="result-container">
-            <div className="result-header">
-              <h3>Your Cover Letter</h3>
-              <button onClick={copyText} className="secondary-btn">Copy Text</button>
-            </div>
-            <div className="letter-output">
-              {letter}
-            </div>
-          </div>
-        )}
-      </div>
+      
+      {letter !== "" && (
+        <div style={{ marginTop: "20px", border: "1px solid black", padding: "10px" }}>
+          <h3>Generated Letter:</h3>
+          <p style={{ whiteSpace: "pre-wrap" }}>{letter}</p>
+          <button onClick={copyText}>Copy Text</button>
+        </div>
+      )}
     </div>
   );
 }
