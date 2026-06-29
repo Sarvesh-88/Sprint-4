@@ -9,7 +9,7 @@ A dynamic SaaS utility built to streamline the job application process. This pro
 
 ## Screenshot
 
-![Project Screenshot](Insert_Image_URL_Here)
+![Project Screenshot](https://github.com/Sarvesh-88/Sprint-4/blob/main/Sprint-4.png)
 
 ## Tech Stack
 
